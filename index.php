@@ -7,21 +7,22 @@
 </head>
 
 <body>
-<?php
-echo "<table class='table'";
-
-  	$name_colums = array('Фамилия','Имя','Дата рождения','Номер группы');
-  	$inputfile = file("input.txt");
-
-  	echo "<thead>";
-	  	echo "<tr>";
-	  	foreach ($name_colums as $value) {
-	   		echo "<th>".$value."</th>";
-		}
-		echo "</tr>";
-	echo "</thead>";
-
-	echo "<tbody>";
+<table class='table'>
+	<?php
+	  	$name_colums = array('Фамилия','Имя','Дата рождения','Номер группы');
+	  	$inputfile = file("input.txt");
+	?>
+	<thead>
+		<tr>
+		<?			
+		  	foreach ($name_colums as $value) {
+		   		echo "<th>".$value."</th>";
+			}
+		?>		
+		</tr>
+	</thead>
+	<tbody>
+	<?
 		foreach ($inputfile as $line) {
 			echo "<tr>";
 			$line_split = explode(";", $line);
@@ -30,16 +31,17 @@ echo "<table class='table'";
 			}
 			echo "</tr>";
 		}
-	echo "</tbody>";
-echo "</table>";
-echo "<select class='box'>";
-    for ($n = 1; $n  <= 30; $n++) 
-    { 
-    	$color = substr(md5(rand()), 0, 6);
-   		echo "<option>$color</option>";
-    }
-echo "</select>";
-
-?>
+	?>		
+</tbody>
+</table>
+	<select class='box'>
+	<?
+	    for ($n = 1; $n  <= 30; $n++) 
+	    { 
+	    	$color = substr(md5(rand()), 0, 6);
+	   		echo "<option>$color</option>";
+	    }
+	?>
+	</select>
 </body>
 </html>
