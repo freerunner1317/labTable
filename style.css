@@ -1,7 +1,5 @@
 body {
   font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
-  color: $color;
-  background: $color;
 }
 
 .table {
@@ -36,7 +34,26 @@ body {
 	background: #faff78;
 }
 
+.selectBox{
+	float:left;
+	width: 25%;
+	text-align: center;	
+
+}
+
+.checkBoxWrap{	
+	float:left;	
+	width: 25%;
+	text-align: center;	
+}
+
+.checkBox{	
+	text-align: left;	
+	display: inline-block;
+}
+
 .box {
+	 text-align: center;
 	  width: 120px;
 	  height: 30px;
 	  border: 1px solid #999;
@@ -44,5 +61,5 @@ body {
 	  color: #1c87c9;
 	  background-color: #eee;
 	  border-radius: 5px;
-	  box-shadow: 4px 4px #ccc;
+
 }
