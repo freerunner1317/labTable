@@ -1,5 +1,5 @@
 body {
-  font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
+  font: 13px "Lucida Grande", Tahoma, Verdana, sans-serif;
 }
 
 .table {
@@ -10,8 +10,8 @@ body {
 	border-bottom: 3px solid #fff;
 	border-collapse: collapse; 
 	outline: 3px solid #ffd300;
-	font-size: 15px;
 	background: #faff78;
+	font-size: 15px;
 }
 .table th {
 	font-weight: bold;
@@ -19,7 +19,6 @@ body {
 	background: #ffd300;
 	border: none;
 	text-align: left;
-	font-size: 15px;
 	border-top: 3px solid #fff;
 	border-bottom: 3px solid #ffd300;
 }
@@ -28,7 +27,6 @@ body {
 	border: none;
 	border-top: 3px solid #fff;
 	border-bottom: 3px solid #fff;
-	font-size: 15px;
 }
 .table tbody tr:nth-child(even){
 	background: #faff78;
@@ -36,20 +34,21 @@ body {
 
 .selectBox{
 	float:left;
-	width: 25%;
+	width: 15%;
 	text-align: center;	
 
 }
 
 .checkBoxWrap{	
 	float:left;	
-	width: 25%;
+	width: 30%;
 	text-align: center;	
 }
 
 .checkBox{	
 	text-align: left;	
 	display: inline-block;
+	margin: 0 20px;
 }
 
 .box {
