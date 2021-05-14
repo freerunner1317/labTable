@@ -1,3 +1,7 @@
+<?php
+  setcookie('typeSortCoo', 1, time()+3600);
+?>
+
 <!doctype html>
 <html>
 
@@ -71,8 +75,8 @@
 		  }
 		}
 
-		function refreshTable(str) {
-		  if (str=="") {
+		function refreshTable(column, type_sort) {
+		  if (column=="") {
 		    document.getElementById("tableAppearence").innerHTML="";
 		    return;
 		  }
@@ -82,9 +86,9 @@
 		      document.getElementById("tableAppearence").innerHTML=this.responseText;
 		    }
 		  }
-		  xmlhttp.open("GET","table.php?column="+str,true);
+		  xmlhttp.open("GET","table.php?column=" + column + "&typesort=" + type_sort,true);
 		  xmlhttp.send();
 		}
-		refreshTable(1);
+		refreshTable(-1, 1);
 	</script>  
 </html>
