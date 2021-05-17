@@ -63,8 +63,6 @@ body {
 
 }
 
-button {
-
-    background: transparent;
-    border: none !important;
-}​
+.symbolsStyle{
+	font-size: 18px;
+}

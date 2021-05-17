@@ -1,6 +1,4 @@
-<?php
-  setcookie('typeSortCoo', 1, time()+3600);
-?>
+
 
 <!doctype html>
 <html>
@@ -28,10 +26,10 @@
 	<div class="checkBoxWrap">
 		<div class="checkBox">	
 			<form>				
-				<p style="text-align: center;"><b>Шрифт шапки</b></p>
-				    <p><input name="radButHead" type="radio" value="5"> Микроскопический</p>
-				    <p><input name="radButHead" type="radio" value="10"> Маленький</p>
-				    <p><input name="radButHead" type="radio" value="15" checked> Норм</p>		    
+				<p style="text-align: center;"><b>Ширина таблицы</b></p>
+				    <p><input name="radButHead" type="radio" value="20%"> 20%</p>
+				    <p><input name="radButHead" type="radio" value="50%"> 50%</p>
+				    <p><input name="radButHead" type="radio" value="100%" checked>Норм</p>		    
 			    <p style="text-align: center;"><input type="button" onclick="radioButtonHead()" value="Выбрать"></p>
 		  	</form> 
 		 </div> 
@@ -48,6 +46,8 @@
 	</div>	
 </body>
 	<script type="text/javascript">
+		let symbol = ["","", "🠓", "🠑"];
+
 		function changeBackgrColor(){
 			var sel = document.getElementById("box");
 			var text= sel.options[sel.selectedIndex].text;
@@ -60,7 +60,7 @@
 		  for (var i=0;i<rad.length; i++) {
 		    if (rad[i].checked) {
 		      //alert('Выбран '+rad[i].value+' radiobutton');
-		      document.getElementById('tHead').style.fontSize = rad[i].value +"px";
+		      document.getElementById('table').style.width =rad[i].value;
 		    }
 		  }
 		}
@@ -75,20 +75,25 @@
 		  }
 		}
 
-		function refreshTable(column, type_sort) {
-		  if (column=="") {
+		function refreshTable(column, typesort) {
+		  if (typesort=="") {
 		    document.getElementById("tableAppearence").innerHTML="";
 		    return;
 		  }
+
 		  var xmlhttp=new XMLHttpRequest();
 		  xmlhttp.onreadystatechange=function() {
 		    if (this.readyState==4 && this.status==200) {
 		      document.getElementById("tableAppearence").innerHTML=this.responseText;
+		      document.getElementById("id_" + column).innerHTML = symbol[typesort]; 
 		    }
 		  }
-		  xmlhttp.open("GET","table.php?column=" + column + "&typesort=" + type_sort,true);
+
+		  xmlhttp.open("GET","table.php?column=" + column + "&typesort=" + typesort,true);
 		  xmlhttp.send();
+
 		}
 		refreshTable(-1, 1);
+
 	</script>  
 </html>
