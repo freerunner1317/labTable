@@ -53,23 +53,25 @@
 	  		$allFile[$key]["birthday"] = $splitLines[$key][2];
 	  		$allFile[$key]["group_number"] = $splitLines[$key][3];
 
-	  		$splitColums[0][$key] = $splitLines[$key][0];
+	  		$splitColums[4][$key] = $splitLines[$key][0];
 	  		$splitColums[1][$key] = $splitLines[$key][1];
 	  		$splitColums[2][$key] = strtotime($splitLines[$key][2]);
 	  		$splitColums[3][$key] = $splitLines[$key][3];
 	  	}
-
-	  	if (($column == 2) && ($typeSort != 1))
-	  		array_multisort($splitColums[$column],(($_GET['typesort'] == 2) ? SORT_ASC : SORT_DESC), SORT_NUMERIC, $allFile);
-	  	elseif ($typeSort != 1)
-	  		array_multisort($splitColums[$column], $typeSort, $allFile);
-
+	  	var_dump($column);
+	  	
+	  	if ($typeSort != 1){
+		  	if (($column == 2) || ($column == 3))
+		  		array_multisort($splitColums[$column],(($_GET['typesort'] == 2) ? SORT_ASC : SORT_DESC), SORT_NUMERIC, $allFile);
+		  	else
+		  		array_multisort($splitColums[$column],(($_GET['typesort'] == 2) ? SORT_ASC : SORT_DESC), SORT_STRING, $allFile);
+		  		//array_multisort($splitColums[$column], $typeSort, $allFile);
+	  	}
 
 	  	if ($typeSort < 3)
 	  		$typeSort ++;	  	
 	  	else 
 	  		$typeSort = 1;
-
 	  	
 	?>
 		<thead id="tHead">
