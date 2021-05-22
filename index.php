@@ -70,8 +70,6 @@
 	  	else 
 	  		$typeSort = 1;
 
-	  	echo $_COOKIE['typesort'];
-	  	echo $_COOKIE['column'];
 	  	
 	?>
 		<thead id="tHead">
