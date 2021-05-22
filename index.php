@@ -39,18 +39,6 @@
 <body id="body"> 
 	<table class='table' id="table">
 	<?php
-	/*
-		if (isset($_GET['typesort']) || isset($_GET['column'])){
-			$typeSort = (int)$_GET['typesort'];	
-			$column =	(int)$_GET['column'];	
-			$backColor =	$_GET['backColor'];
-			
-		}else{
-			$typeSort = (int)$_COOKIE['typesort'];	
-			$column =	(int)$_COOKIE['column'];	
-			$backColor =	 $_COOKIE['backColor'];
-		}
-	*/
 		$symbol = array("","🠑", "", "🠓");
 	  	$name_colums = array('Фамилия','Имя','Дата рождения','Номер группы');
 	  	$inputfile = file("input.txt");
