@@ -58,21 +58,16 @@
 	  		$splitColums[2][$key] = strtotime($splitLines[$key][2]);
 	  		$splitColums[3][$key] = $splitLines[$key][3];
 	  	}
-	  	var_dump($allFile);
-	  	array_multisort($splitColums[0],SORT_ASC,$allFile);
-	  	foreach ($splitColums[0] as $key => $value) {
-	  		echo $value;
-	  		echo "<br>";
-	  	}
-	  	/*
+
+	  	setlocale(LC_ALL, 'ru_RU.UTF-8');
+	  	
 	  	if ($typeSort != 1){
 		  	if (($column == 2) || ($column == 3))
 		  		array_multisort($splitColums[$column],(($_GET['typesort'] == 2) ? SORT_ASC : SORT_DESC), SORT_NUMERIC, $allFile);
 		  	else
-		  		array_multisort($splitColums[$column],(($_GET['typesort'] == 2) ? SORT_ASC : SORT_DESC), SORT_STRING, $allFile);
-		  		//array_multisort($splitColums[$column], $typeSort, $allFile);
+		  		array_multisort($splitColums[$column],(($_GET['typesort'] == 2) ? SORT_ASC : SORT_DESC), SORT_LOCALE_STRING, $allFile);
 	  	}
-		*/
+		
 	  	if ($typeSort < 3)
 	  		$typeSort ++;	  	
 	  	else 
