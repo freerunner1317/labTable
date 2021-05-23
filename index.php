@@ -100,7 +100,7 @@
 		?>		
 		</tbody>
 	</table>
-	<form id="settings" method="GET" action="index.php?column=$cloumn&typesort=$typeSort">
+	<form id="settings" method="GET" action="index.php">
 		<div class="selectBox">
 			<p>Цвет фона</p>
 			<select class='box' id="box" name="backColor" value="">
