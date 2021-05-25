@@ -1,7 +1,7 @@
 <? 
 	if (isset($_GET['typesort']) || isset($_GET['column'])){
-	   setcookie("column", $_GET['column'], time()+600);
-	   setcookie("typesort", $_GET['typesort'], time()+600);
+	   setcookie("column", $_GET['column'], time()+6);
+	   setcookie("typesort", $_GET['typesort'], time()+6);
 	   $typeSort = (int)$_GET['typesort'];	
 	   $column =	(int)$_GET['column'];	
 	}else{
@@ -10,19 +10,19 @@
 	   $backColor =	 $_COOKIE['backColor'];
 	}
 	if(isset($_GET['backColor'])){
-		setcookie("backColor", $_GET['backColor'], time()+600);
+		setcookie("backColor", $_GET['backColor'], time()+6);
 		$backColor = $_GET['backColor'];
 	}else{
 		$backColor = $_COOKIE['backColor'];
 	}
 	if(isset($_GET['fontSizeTb'])){
-		setcookie("fontSizeTb", $_GET['fontSizeTb'], time()+600);
+		setcookie("fontSizeTb", $_GET['fontSizeTb'], time()+6);
 		$fontSizeTb = $_GET['fontSizeTb'];
 	}else{
 		$fontSizeTb = $_COOKIE['fontSizeTb'];
 	}
 	if(isset($_GET['tableWidth'])){
-		setcookie("tableWidth", $_GET['tableWidth'], time()+600);
+		setcookie("tableWidth", $_GET['tableWidth'], time()+6);
 		$tableWidth = $_GET['tableWidth'];
 	}else{
 		$tableWidth = $_COOKIE['tableWidth'];
@@ -39,7 +39,7 @@
 <body id="body"> 
 	<table class='table' id="table">
 	<?php
-		$symbol = array("","🠑", "", "🠓");
+		$symbol = array("","", "🠑", "🠓");
 	  	$name_colums = array('Фамилия','Имя','Дата рождения','Номер группы');
 	  	$inputfile = file("input.txt");
 
@@ -61,17 +61,19 @@
 
 	  	setlocale(LC_ALL, 'ru_RU.UTF-8');
 	  	
-	  	if ($typeSort != 1){
+	  	if (($typeSort < 3) && ($typeSort != 0))
+	  		$typeSort ++;	  	
+	  	else 
+	  		$typeSort = 2;
+	  	echo $typeSort;
+	  	
+	  	if ($typeSort > 1){
 		  	if (($column == 2) || ($column == 3))
 		  		array_multisort($splitColums[$column],(($_GET['typesort'] == 2) ? SORT_ASC : SORT_DESC), SORT_NUMERIC, $allFile);
 		  	else
-		  		array_multisort($splitColums[$column],(($_GET['typesort'] == 2) ? SORT_ASC : SORT_DESC), SORT_LOCALE_STRING, $allFile);
+		  		array_multisort($splitColums[$column],(($_GET['typesort'] == 2) ? SORT_ASC : SORT_DESC), SORT_STRING, $allFile);
 	  	}
 		
-	  	if ($typeSort < 3)
-	  		$typeSort ++;	  	
-	  	else 
-	  		$typeSort = 1;
 	  	
 	?>
 		<thead id="tHead">
